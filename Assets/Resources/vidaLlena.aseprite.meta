@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7801a6698b847e34ebde7883bd9bd076
+guid: 23bca3022e63b7047872c960b942f448
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sprite-0002_Frame_0
+  - name: vidaLlena_Frame_0
     originalName: 
     pivot: {x: 0.5121951, y: 0}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 41
       height: 37
-    spriteID: 6326f1894b19ae344a282bccc0c87494
+    spriteID: 2ecc36cc5dcf9a24fb442dd02e738b5a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Sprite-0002_Frame_1
+  - name: vidaLlena_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 4
       width: 42
       height: 35
-    spriteID: f53742fa16b14c94faf69acb085aaec9
+    spriteID: 1eb549c136cdfba45b17252af515023f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 53, y: 4}
-  - name: Sprite-0002_Frame_2
+  - name: vidaLlena_Frame_2
     originalName: 
     pivot: {x: 0.5121951, y: 0}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 49
       width: 41
       height: 37
-    spriteID: acd9715390f7d7947a8290079ea6e663
+    spriteID: 4a9b3c34d31007843afa8bd56c78e040
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,36 +182,36 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -572920020
-    name: Sprite-0002
+    guid: 1276331298
+    name: vidaLlena
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sprite-0002_Frame_0
+    - name: vidaLlena_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 41
         height: 37
-      spriteId: 6326f1894b19ae344a282bccc0c87494
-    - name: Sprite-0002_Frame_1
+      spriteId: 2ecc36cc5dcf9a24fb442dd02e738b5a
+    - name: vidaLlena_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 42
         height: 35
-      spriteId: f53742fa16b14c94faf69acb085aaec9
-    - name: Sprite-0002_Frame_2
+      spriteId: 1eb549c136cdfba45b17252af515023f
+    - name: vidaLlena_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 41
         height: 37
-      spriteId: acd9715390f7d7947a8290079ea6e663
+      spriteId: 4a9b3c34d31007843afa8bd56c78e040
     linkedCells: []
     parentIndex: -1
   platformSettings: []
