@@ -146,11 +146,31 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 49
+      x: 53
+      y: 4
       width: 42
       height: 35
     spriteID: f53742fa16b14c94faf69acb085aaec9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 53, y: 4}
+  - name: Sprite-0002_Frame_2
+    originalName: 
+    pivot: {x: 0.5121951, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 49
+      width: 41
+      height: 37
+    spriteID: acd9715390f7d7947a8290079ea6e663
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,7 +191,7 @@ ScriptedImporter:
     - name: Sprite-0002_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
+        x: 0
         y: 0
         width: 41
         height: 37
@@ -179,14 +199,22 @@ ScriptedImporter:
     - name: Sprite-0002_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
+        x: 0
         y: 0
         width: 42
         height: 35
       spriteId: f53742fa16b14c94faf69acb085aaec9
+    - name: Sprite-0002_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 41
+        height: 37
+      spriteId: acd9715390f7d7947a8290079ea6e663
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 46, y: 37}
+  canvasSize: {x: 42, y: 37}
