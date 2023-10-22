@@ -128,8 +128,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 64
-      height: 64
+      width: 66
+      height: 66
     spriteID: 82d324cc3a32a06499ca21828b8c7da2
     spriteBone: []
     spriteOutline: []
@@ -141,13 +141,13 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: botonSpray_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.015625}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 76
+      y: 78
       width: 64
       height: 64
     spriteID: 9d19b2a91a09db94c9361fe1faf1e221
@@ -158,7 +158,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 76}
+    uvTransform: {x: 4, y: 78}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -173,14 +173,14 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 66
+        height: 66
       spriteId: 82d324cc3a32a06499ca21828b8c7da2
     - name: botonSpray_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
-        y: 0
+        x: 1
+        y: 1
         width: 64
         height: 64
       spriteId: 9d19b2a91a09db94c9361fe1faf1e221
@@ -189,4 +189,4 @@ ScriptedImporter:
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 64}
+  canvasSize: {x: 66, y: 66}
