@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 324416425}
   - component: {fileID: 324416424}
   - component: {fileID: 324416423}
-  - component: {fileID: 324416427}
   m_Layer: 5
   m_Name: Ui_Layer
   m_TagString: Untagged
@@ -368,21 +367,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &324416427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324416422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c91336a7e362a45b09fb1e7af399d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterAlert: {fileID: 1259675182}
-  soilAlert: {fileID: 1191327734}
-  solarLightAlert: {fileID: 1269660958}
 --- !u!1001 &367552894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,7 +850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 324416427}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: notifyWaterButtonPressed
         m_Mode: 1
@@ -1066,57 +1050,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259675180}
   m_CullTransparentMesh: 1
---- !u!1 &1261711763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1261711765}
-  - component: {fileID: 1261711764}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1261711764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261711763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726c06cfae7d1984fa7a5050c2c33a7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uIManager: {fileID: 324416427}
-  clockEventPlantChecker: 2
-  clockEventGeneralChecker: 1200
-  plantSpriteRenderer: {fileID: 1292829619}
-  plantSpriteFull: {fileID: 2463598548710820777, guid: 23bca3022e63b7047872c960b942f448, type: 3}
-  plantSpriteMedium: {fileID: 6650230665143914466, guid: 7d50c8598d7936c4faf75e83929a4b82, type: 3}
-  plantSpriteLow: {fileID: 8936499903169868140, guid: 80562439afb3e8145b71a75598f0dc2c, type: 3}
---- !u!4 &1261711765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261711763}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269660956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,11 +1125,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269660956}
   m_CullTransparentMesh: 1
---- !u!212 &1292829619 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3626916397498700004, guid: 23bca3022e63b7047872c960b942f448, type: 3}
-  m_PrefabInstance: {fileID: 56679135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1381255849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1271,7 +1199,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1261711765}
   - {fileID: 324416426}
   - {fileID: 104499583}
   - {fileID: 56679135}
