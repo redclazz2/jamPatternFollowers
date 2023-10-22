@@ -11,7 +11,7 @@ public class Shelter : GameComponent
 
 	private double water { get { return this.water; } set { } }
 	private double soil { get { return this.soil; } set { } }
-	private SunLightLevel sunlight { get { return this.sunlight; } set { this.sunlight = value; } }
+	private SunLightLevel sunlight { get { return this.sunlight; } set { } }
 	private int bugs { get { return this.bugs; } set { } }
 
 	public Shelter(MediatorInterface gameMediator) : base(gameMediator)
