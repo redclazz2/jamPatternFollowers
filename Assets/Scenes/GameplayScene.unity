@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uIManager: {fileID: 324416427}
-  clockEventPlantChecker: 0.1
+  clockEventPlantChecker: 0.5
   clockEventGeneralChecker: 1200
 --- !u!4 &1261711765
 Transform:
