@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 23bca3022e63b7047872c960b942f448, type: 3}
       propertyPath: m_Name
-      value: SamplePlant
+      value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 23bca3022e63b7047872c960b942f448, type: 3}
       propertyPath: m_LocalScale.x
@@ -377,7 +377,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 8dcb36f345bfdcc40b0898966563baf6, type: 3}
       propertyPath: m_Name
-      value: uiMesa
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 8dcb36f345bfdcc40b0898966563baf6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1135,7 +1135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: c98adefb3db166e4993684b1cd6341b5, type: 3}
       propertyPath: m_Name
-      value: background
+      value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: c98adefb3db166e4993684b1cd6341b5, type: 3}
       propertyPath: m_LocalScale.x
