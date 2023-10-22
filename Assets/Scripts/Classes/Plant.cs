@@ -11,6 +11,7 @@ public class Plant : GameComponent
     private double sunlight;
     private int bugs;
 	public int notifyPlantIconNeedMin = 90;
+	public int notifyPlantIconNeedBugsMin = 5;
 
 	public double Health { get => health; set => health = value; }
 	public double Water { get => water; set => water = value; }
@@ -32,20 +33,20 @@ public class Plant : GameComponent
 	#region Modifiers - Methods to substract from properties
 	public void modifySubstractWater(double value){
 		this.water -= value;
-		this.NotifyWaterStatus();
+		this.notifyWaterStatus();
 		this.debugPlantValue(); //TODO:: Quitar esto cuando no se necesite hacer debug
 	}
 
 	public void modifySubstractSoil(double value)
 	{
 		this.soil -= value;
-		this.NotifySoilStatus();
+		this.notifySoilStatus();
 	}
 	
 	public void modifySubstractSunlight(double value)
 	{
 		this.sunlight -= value;
-		this.NotifySunLightStatus();
+		this.notifySunLightStatus();
 	}
 
 	public void modifySubstractBugs(int value)
@@ -79,21 +80,27 @@ public class Plant : GameComponent
 
 	#region Status Checkers - Methods to communicate to Mediator
 	
-	public void NotifyWaterStatus()
+	public void notifyWaterStatus()
 	{
 		string _event = this.water < this.notifyPlantIconNeedMin ? "WaterLow" : "WaterOk";
 		this.gameMediator.notify(this, _event);
 	}
 
-	public void NotifySoilStatus()
+	public void notifySoilStatus()
 	{
 		string _event = this.soil < this.notifyPlantIconNeedMin ? "SoilLow" : "SoilOk";
 		this.gameMediator.notify(this, _event);
 	}
 
-	public void NotifySunLightStatus()
+	public void notifySunLightStatus()
 	{
 		string _event = this.water < this.notifyPlantIconNeedMin ? "SunLightLow" : "SunLightOk";
+		this.gameMediator.notify(this, _event);
+	}
+
+	public void notifyBugStatus()
+	{
+		string _event = this.bugs > this.notifyPlantIconNeedBugsMin ? "BugsIn" : "BugsOut";
 		this.gameMediator.notify(this, _event);
 	}
 

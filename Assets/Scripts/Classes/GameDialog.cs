@@ -74,6 +74,11 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 			case "SunLightOk":
 				this.uIManager.DisableSolarLightNeedIcon();
 				break;
+			case "BugsIn":
+				break;
+			case "BugsOut":
+				break;
+			
 		}
 	}
 
