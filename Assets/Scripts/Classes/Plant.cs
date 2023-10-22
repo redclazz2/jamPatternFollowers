@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class Plant : GameComponent
 {
-	private double health { get { return this.health; } set { } } 
-	private double water { get { return this.water; } set { } }
-	private double soil { get { return this.soil;  } set { } }
-	private double sunlight { get { return this.sunlight; } set { } }
-	private int bugs { get { return this.bugs; } set { } }	
+	private double health;
+	private double water;
+	private double soil;
+	private double sunlight;
+	private int bugs;
+
+	public double Health { get => health; set => health = value; }
+	public double Water { get => water; set => water = value; }
+	public double Soil { get => soil; set => soil = value; }
+	public double Sunlight { get => sunlight; set => sunlight = value; }
+	public int Bugs { get => bugs; set => bugs = value; }
 
 	public Plant(MediatorInterface gameMediator) : base(gameMediator)
 	{
@@ -24,6 +30,7 @@ public class Plant : GameComponent
 	#region Modifiers - Methods to substract from properties
 	public void modifySubstractWater(double value){
 		this.water -= value;
+		this.debugPlantValue();
 	}
 
 	public void modifySubstractSoil(double value)
@@ -64,4 +71,12 @@ public class Plant : GameComponent
 	}
 	#endregion
 
+	public void debugPlantValue()
+	{
+		Debug.Log($"Water has been modified to: {this.water}");
+		Debug.Log($"Soil has been modified to: {this.soil}");
+		Debug.Log($"Sun Light has been modified to: {this.sunlight}");
+		Debug.Log($"Bugs has been modified to: {this.bugs}");
+		Debug.Log($"-------------------------------------");
+	}
 }
