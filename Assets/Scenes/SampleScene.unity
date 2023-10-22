@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726c06cfae7d1984fa7a5050c2c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockEventPlantChecker: 2
-  eventGeneralChecker: 1200
+  clockEventPlantChecker: 10
+  clockEventGeneralChecker: 1200
 --- !u!4 &1261711765
 Transform:
   m_ObjectHideFlags: 0
