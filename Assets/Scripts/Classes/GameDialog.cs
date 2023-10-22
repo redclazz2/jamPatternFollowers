@@ -6,13 +6,13 @@ using UnityEngine;
 public class GameDialog : MonoBehaviour, MediatorInterface
 {
 	//Clock Checkers == Frames for internal clock handling
+	public UIManager uIManager;
 	public float clockEventPlantChecker = 10.0f;
 	public int clockEventGeneralChecker = 1200;
 	Plant plant;
 	Shelter shelter;
 	EventManager eventManager;
 	Expedition expedition;
-	UIManager uIManager;
 
 	private void Start()
 	{
@@ -20,8 +20,6 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 		this.shelter = new Shelter(this);
 		this.eventManager = new EventManager(this);
 		this.expedition = new Expedition(this);
-		this.uIManager = new UIManager(this);
-
 		Debug.Log("Game Dialog Initialized");
 
 		InvokeRepeating("rollEventPlant", 0.0f, clockEventPlantChecker);

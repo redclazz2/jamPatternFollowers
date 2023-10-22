@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 324416425}
   - component: {fileID: 324416424}
   - component: {fileID: 324416423}
+  - component: {fileID: 324416427}
   m_Layer: 5
   m_Name: Ui_Layer
   m_TagString: Untagged
@@ -364,6 +365,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &324416427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324416422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c91336a7e362a45b09fb1e7af399d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterAlert: {fileID: 1259675182}
+  soilAlert: {fileID: 1191327734}
+  solarLightAlert: {fileID: 1269660958}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,7 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726c06cfae7d1984fa7a5050c2c33a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockEventPlantChecker: 10
+  uIManager: {fileID: 324416427}
+  clockEventPlantChecker: 0.1
   clockEventGeneralChecker: 1200
 --- !u!4 &1261711765
 Transform:
