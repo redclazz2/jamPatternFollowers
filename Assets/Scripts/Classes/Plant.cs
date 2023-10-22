@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Plant : GameComponent
 {
-	private double health;
+	private GameDialog gameDialogInstance;
+    private double health;
 	private double water;
 	private double soil;
     private double sunlight;
@@ -26,7 +27,9 @@ public class Plant : GameComponent
 		this.soil = 100;
 		this.sunlight = 100;
 		this.bugs = 0;
-
+		//Obtener referencia del Mediador
+		gameDialogInstance = FindObjectOfType<GameDialog>();
+		gameMediator = gameDialogInstance.GetComponent<MediatorInterface>();
 		Debug.Log("Plant Initialized");
 	}
 

@@ -7,9 +7,9 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 {
 	//Clock Checkers == Frames for internal clock handling
 	public UIManager uIManager;
+	Plant plant;
 	public float clockEventPlantChecker = 10.0f;
 	public int clockEventGeneralChecker = 1200;
-	Plant plant;
 	Shelter shelter;
 	EventManager eventManager;
 	Expedition expedition;
