@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameComponent:MonoBehaviour
+public class GameComponent:ScriptableObject
 {
     public MediatorInterface gameMediator;
     public GameComponent(MediatorInterface gameMediator)
