@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class GameDialog : MonoBehaviour, MediatorInterface
 {
 	//Clock Checkers == Frames for internal clock handling
 	public UIManager uIManager;
-	Plant plant;
 	public float clockEventPlantChecker = 10.0f;
 	public int clockEventGeneralChecker = 1200;
+	public SpriteRenderer plantSpriteRenderer;
+	public Sprite[] plantSpriteFull;
+	public Sprite[] plantSpriteMedium;
+	public Sprite[] plantSpriteLow;
+
 	Shelter shelter;
+	Plant plant;
 	EventManager eventManager;
 	Expedition expedition;
 
@@ -45,11 +51,23 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 		if(sender == this.expedition) {
 		
 		}
+	}
 
-		if( sender == this.uIManager) {
-		
+	public void notify(UIManager uiManager,string _event)
+	{
+		switch(_event)
+		{
+			case "WaterBtn":
+				Debug.Log("------------UI Water Pressed--------------");
+				if(this.shelter.Water >  0 && this.plant.Water < 100)
+				{
+					Debug.Log("Shelter has enough water to perform the action!");
+					this.shelter.removeShelterWater(5);
+					this.plant.modifyAddWater(5);
+					Debug.Log($"Shelter resource {_event}: {this.shelter.Water} in {this.plant.Water}");
+				}
+				break;
 		}
-		//..
 	}
 
 	private void handlePlantEvents(string _event)
@@ -78,7 +96,20 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 				break;
 			case "BugsOut":
 				break;
-			
+
+
+			case "PlantHealthOk":
+				plantSpriteRenderer.sprite = this.plantSpriteFull;
+				break;
+			case "PlantHealthMeh":
+				plantSpriteRenderer.sprite = this.plantSpriteMedium;
+				break;
+			case "PlantHealthCritical":
+				plantSpriteRenderer.sprite = this.plantSpriteLow;
+				break;
+			case "PlantHealthGameOver":
+				plantSpriteRenderer.enabled = false;
+				break;
 		}
 	}
 
@@ -88,6 +119,8 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 		this.plant.modifySubstractWater(reducePlantVariables);
 		this.plant.modifySubstractSunlight(reducePlantVariables);
 		this.plant.modifySubstractSoil(reducePlantVariables);
+		this.plant.modifyPlantHealth();
+		Debug.Log($"Plant Health: {this.plant.Health}");
 	}
 
 	void rollEventGeneral()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameComponent:ScriptableObject
+public class GameComponent
 {
     public MediatorInterface gameMediator;
     public GameComponent(MediatorInterface gameMediator)

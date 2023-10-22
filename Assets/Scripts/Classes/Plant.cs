@@ -5,14 +5,20 @@ using UnityEngine.UI;
 
 public class Plant : GameComponent
 {
-	private GameDialog gameDialogInstance;
     private double health;
 	private double water;
 	private double soil;
     private double sunlight;
     private int bugs;
+
 	public int notifyPlantIconNeedMin = 90;
 	public int notifyPlantIconNeedBugsMin = 5;
+
+	public int resourceHealthMax = 100;
+	public int resourceWaterMax = 100;
+	public int resourceSoilMax = 100;
+	public int resourceSunlightMax = 80;
+	public int resourceBugsMax = 20;
 
 	public double Health { get => health; set => health = value; }
 	public double Water { get => water; set => water = value; }
@@ -22,14 +28,12 @@ public class Plant : GameComponent
 
 	public Plant(MediatorInterface gameMediator) : base(gameMediator)
 	{
-		this.health = 100;
-		this.water = 100;
-		this.soil = 100;
-		this.sunlight = 100;
+		this.health = this.resourceHealthMax;
+		this.water = this.resourceWaterMax;
+		this.soil = this.resourceSoilMax;
+		this.sunlight = this.resourceSunlightMax;
 		this.bugs = 0;
-		//Obtener referencia del Mediador
-		gameDialogInstance = FindObjectOfType<GameDialog>();
-		gameMediator = gameDialogInstance.GetComponent<MediatorInterface>();
+
 		Debug.Log("Plant Initialized");
 	}
 
@@ -37,7 +41,7 @@ public class Plant : GameComponent
 	public void modifySubstractWater(double value){
 		this.water -= value;
 		this.notifyWaterStatus();
-		this.debugPlantValue(); //TODO:: Quitar esto cuando no se necesite hacer debug
+		//this.debugPlantValue(); //TODO:: Quitar esto cuando no se necesite hacer debug
 	}
 
 	public void modifySubstractSoil(double value)
@@ -56,6 +60,27 @@ public class Plant : GameComponent
 	{
 		this.bugs -= value;
 		//TODO NOTIFY BUG STATUS
+	}
+
+	public void modifyPlantHealth()
+	{
+		//Health is calculated based on: Water (40%) Soil (30%) SunLight (25%) and Bugs (5%)
+		this.health = (((this.water * 0.4) / this.resourceWaterMax ) 
+					+ ((this.soil * 0.3) / this.resourceSoilMax) 
+					+ ((this.sunlight * 0.25)/this.resourceSunlightMax)
+					- ((this.bugs * 0.05)/this.resourceBugsMax)) * 100;
+
+		string myNotificationMessage = "";
+
+		//Perdón x el chorizo
+		if (this.health > 70) myNotificationMessage = "PlantHealthOk";
+		else if (this.health <= 69 && this.health > 40) myNotificationMessage = "PlantHealthMeh";
+		else if (this.health < 40) myNotificationMessage = "PlantHealthCritical";
+		else if (this.health <= 0) myNotificationMessage = "PlantHealthGameOver";
+
+
+		this.gameMediator.notify(this,myNotificationMessage);
+
 	}
 	#endregion
 
@@ -81,29 +106,29 @@ public class Plant : GameComponent
 	}
 	#endregion
 
-	#region Status Checkers - Methods to communicate to Mediator
+	#region Notifiers - Methods to communicate to Mediator
 	
 	public void notifyWaterStatus()
 	{
-		string _event = this.water < this.notifyPlantIconNeedMin ? "WaterLow" : "WaterOk";
+		string _event = this.water <= this.notifyPlantIconNeedMin ? "WaterLow" : "WaterOk";
 		this.gameMediator.notify(this, _event);
 	}
 
 	public void notifySoilStatus()
 	{
-		string _event = this.soil < this.notifyPlantIconNeedMin ? "SoilLow" : "SoilOk";
+		string _event = this.soil <= this.notifyPlantIconNeedMin ? "SoilLow" : "SoilOk";
 		this.gameMediator.notify(this, _event);
 	}
 
 	public void notifySunLightStatus()
 	{
-		string _event = this.water < this.notifyPlantIconNeedMin ? "SunLightLow" : "SunLightOk";
+		string _event = this.water <= this.notifyPlantIconNeedMin ? "SunLightLow" : "SunLightOk";
 		this.gameMediator.notify(this, _event);
 	}
 
 	public void notifyBugStatus()
 	{
-		string _event = this.bugs > this.notifyPlantIconNeedBugsMin ? "BugsIn" : "BugsOut";
+		string _event = this.bugs >= this.notifyPlantIconNeedBugsMin ? "BugsIn" : "BugsOut";
 		this.gameMediator.notify(this, _event);
 	}
 
