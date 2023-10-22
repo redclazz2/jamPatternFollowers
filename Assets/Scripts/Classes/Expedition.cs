@@ -9,7 +9,7 @@ public class Expedition : GameComponent
 
     public Expedition(MediatorInterface gameMediator) : base(gameMediator)
 	{
-		Debug.Log("Expedition State Initialized");
+		Debug.Log("Expedition Initialized");
 	}
 
 	public void startExpedition()

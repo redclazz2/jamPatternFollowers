@@ -8,17 +8,19 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 	//Clock Checkers == Frames for internal clock handling
 	public float clockEventPlantChecker = 10.0f;
 	public int clockEventGeneralChecker = 1200;
-	public Plant planta;
-	public Shelter shelter;
-	public EventManager eventManager;
-	public Expedition expedition;
+	Plant plant;
+	Shelter shelter;
+	EventManager eventManager;
+	Expedition expedition;
+	UIManager uIManager;
 
 	private void Start()
 	{
-		this.planta = new Plant(this);
+		this.plant = new Plant(this);
 		this.shelter = new Shelter(this);
 		this.eventManager = new EventManager(this);
 		this.expedition = new Expedition(this);
+		this.uIManager = new UIManager(this);
 
 		Debug.Log("Game Dialog Initialized");
 
@@ -27,9 +29,9 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 
 	public void notify(GameComponent sender, string _event)
 	{
-		if(sender == this.planta)
+		if(sender == this.plant)
 		{
-
+			this.handlePlantEvents(_event);
 		}
 
 		if(sender == this.shelter) 
@@ -42,15 +44,47 @@ public class GameDialog : MonoBehaviour, MediatorInterface
 		
 		}
 
+		if(sender == this.expedition) {
+		
+		}
+
+		if( sender == this.uIManager) {
+		
+		}
 		//..
+	}
+
+	private void handlePlantEvents(string _event)
+	{
+		switch (_event)
+		{
+			case "WaterLow":
+				this.uIManager.EnableWaterNeedIcon();
+				break;
+			case "WaterOk":
+				this.uIManager.DisableWaterNeedIcon();
+				break;
+			case "SoilLow":
+				this.uIManager.EnableSoilNeedIcon();
+				break;
+			case "SoilOk":
+				this.uIManager.DisableSoilNeedIcon();
+				break;
+			case "SunLightLow":
+				this.uIManager.EnableSolarLightNeedIcon();
+				break;
+			case "SunLightOk":
+				this.uIManager.DisableSolarLightNeedIcon();
+				break;
+		}
 	}
 
 	void rollEventPlant()
 	{
 		double reducePlantVariables = 0.5; //TODO Change to random value
-		this.planta.modifySubstractWater(reducePlantVariables);
-		this.planta.modifySubstractSunlight(reducePlantVariables);
-		this.planta.modifySubstractSoil(reducePlantVariables);
+		this.plant.modifySubstractWater(reducePlantVariables);
+		this.plant.modifySubstractSunlight(reducePlantVariables);
+		this.plant.modifySubstractSoil(reducePlantVariables);
 	}
 
 	void rollEventGeneral()
