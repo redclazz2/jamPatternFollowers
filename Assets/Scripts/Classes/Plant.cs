@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Plant : GameComponent
 {
 	private double health;
 	private double water;
+	public Image waterAlertUI;
 	private double soil;
-	private double sunlight;
-	private int bugs;
+    public Image soilAlertUI;
+    private double sunlight;
+    public Image sunlightAlertUI;
+    private int bugs;
 
 	public double Health { get => health; set => health = value; }
 	public double Water { get => water; set => water = value; }
