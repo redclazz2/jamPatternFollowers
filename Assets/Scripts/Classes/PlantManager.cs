@@ -35,9 +35,13 @@ public class PlantManager : MonoBehaviour
     public int Soil { get => soil; set => soil = value; }
     public int SunLight { get => sunLight; set => sunLight = value; }
     public int Bugs { get => bugs; set => bugs = value; }
+    public int MaxWater { get => maxWater; }
+    public int MaxSoil { get => maxSoil; }
+    public int MaxSunLight { get => maxSunLight; }
 
     private void Awake()
     {
+        plantObject = plantStates[0];
         InvokeRepeating(nameof(ReduceStats), 0.0f, reduceStatsTimer);
     }
 
@@ -79,7 +83,7 @@ public class PlantManager : MonoBehaviour
         {
             this.soilAlert.enabled = true;
         }
-        else if (sunLight > this.alertSoilValue)
+        else if (soil > this.alertSoilValue)
         {
             this.soilAlert.enabled = false;
         }
