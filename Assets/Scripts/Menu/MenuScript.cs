@@ -14,4 +14,9 @@ public class MenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void startTutorial()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
