@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FeedManager : MonoBehaviour
 {
@@ -6,8 +7,10 @@ public class FeedManager : MonoBehaviour
     [SerializeField] private int feedWater;
     [SerializeField] private int feedSoil;
     [SerializeField] private int feedSunLight;
-    [Header("Sprites para botón dinámico")]
+    [Header("SunLight Manager")]
+    [SerializeField] private Image sunLightBtn;
     [SerializeField] private Sprite[] sunLightSprites;
+    [SerializeField] private GameObject sunRays;
     private bool sunLightIsActive = false;
 
     public void FeedWater()
@@ -36,6 +39,25 @@ public class FeedManager : MonoBehaviour
 
     public void FeedSunLight()
     {
-        plantObject.SunLight += feedSunLight;
+        if (sunLightIsActive)
+        {
+            sunLightIsActive = false;
+            sunLightBtn.sprite = sunLightSprites[0];
+            sunRays.SetActive(false);
+        }
+        else
+        {
+            sunLightIsActive = true;
+            sunLightBtn.sprite = sunLightSprites[1];
+            sunRays.SetActive(true);
+            if (plantObject.MaxSunLight - plantObject.SunLight < feedSunLight)
+            {
+                plantObject.SunLight += plantObject.MaxSunLight - plantObject.SunLight;
+            }
+            else
+            {
+                plantObject.SunLight += feedSunLight;
+            }
+        }
     }
 }
