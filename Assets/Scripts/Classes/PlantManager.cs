@@ -81,6 +81,12 @@ public class PlantManager : MonoBehaviour
             plantObject = plantStates[2];
             plantObject.SetActive(true);
         }
+        else if (health == 0 && !plantStates[3].activeSelf)
+        {
+            plantObject.SetActive(false);
+            plantObject = plantStates[3];
+            plantObject.SetActive(true);
+        }
 
         Debug.Log("Health: " + this.health);
     }
