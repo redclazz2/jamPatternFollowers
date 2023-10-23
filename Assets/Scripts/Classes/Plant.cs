@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Properties
+    [SerializeField] private int health;
+    [SerializeField] private int water;
+    [SerializeField] private int soil;
+    [SerializeField] private int sunLight;
+    [SerializeField] private int bugs;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int Health { get => health; set => health = value; }
+    public int Water { get => water; set => water = value; }
+    public int Soil { get => soil; set => soil = value; }
+    public int SunLight { get => sunLight; set => sunLight = value; }
+    public int Bugs { get => bugs; set => bugs = value; }
 }
