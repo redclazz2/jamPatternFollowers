@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantManager : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class PlantManager : MonoBehaviour
     [Header("Estados de la planta")]
     private GameObject plantObject;
     public GameObject[] plantStates;
+    [Header("Alertas de la planta")]
+    [SerializeField] private Image waterAlert;
+    [SerializeField] private Image soilAlert;
+    [SerializeField] private Image sunLightAlert;
+    [SerializeField] private int alertWaterValue;
+    [SerializeField] private int alertSoilValue;
+    [SerializeField] private int alertSunLightValue;
 
     public double Health { get => health; }
     public int Water { get => water; set => water = value; }
@@ -30,8 +38,6 @@ public class PlantManager : MonoBehaviour
 
     private void Awake()
     {
-        plantObject = plantStates[0];
-        plantObject.SetActive(true);
         InvokeRepeating(nameof(ReduceStats), 0.0f, reduceStatsTimer);
     }
 
@@ -53,7 +59,39 @@ public class PlantManager : MonoBehaviour
         {
             sunLight -= reduceSunLight > sunLight ? sunLight : reduceSunLight;
         }
+        UpdateAlerts();
         UpdateHealth();
+    }
+
+    private void UpdateAlerts()
+    {
+        if (water < this.alertWaterValue)
+        {
+            Debug.Log("alerta agua");
+            this.waterAlert.enabled = true;
+        }
+        else if (water > this.alertWaterValue)
+        {
+            this.waterAlert.enabled = false;
+        }
+
+        if (soil < this.alertSoilValue)
+        {
+            this.soilAlert.enabled = true;
+        }
+        else if (sunLight > this.alertSoilValue)
+        {
+            this.soilAlert.enabled = false;
+        }
+
+        if (sunLight < this.alertSunLightValue)
+        {
+            this.sunLightAlert.enabled = true;
+        }
+        else if (sunLight > this.alertSunLightValue)
+        {
+            this.sunLightAlert.enabled = false;
+        }
     }
 
     private void UpdateHealth()
@@ -75,7 +113,7 @@ public class PlantManager : MonoBehaviour
             plantObject = plantStates[1];
             plantObject.SetActive(true);
         }
-        else if (health < 40 && !plantStates[2].activeSelf)
+        else if (health < 40 && health != 0 && !plantStates[2].activeSelf)
         {
             plantObject.SetActive(false);
             plantObject = plantStates[2];
